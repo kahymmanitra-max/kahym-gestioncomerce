@@ -24,4 +24,5 @@ buttons.forEach(btn => {
         btn.classList.remove("hovered");
     });
 });
+<script src="script.js"></script>
 

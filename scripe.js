@@ -1,23 +1,27 @@
-// Script pour le prototype Gestion de Commerce
+// --- Animation au chargement du tableau de bord ---
+
 document.addEventListener("DOMContentLoaded", () => {
-    // Afficher un message de bienvenue
-    alert("Bienvenue sur la plateforme Kahymm Gestion Commerce !");
+    const cards = document.querySelectorAll(".card");
 
-    // Sélectionner tous les boutons
-    const boutons = document.querySelectorAll("button");
+    cards.forEach((card, index) => {
+        setTimeout(() => {
+            card.classList.add("show");
+        }, index * 200); // délai d’animation 200ms par carte
+    });
+});
 
-    // Ajouter un événement à chaque bouton
-    boutons.forEach(bouton => {
-        bouton.addEventListener("click", () => {
-            const titre = bouton.parentElement.querySelector("h2").textContent;
-            alert("Vous avez cliqué sur : " + titre);
-        });
+
+// --- Animation hover sur les boutons ---
+
+const buttons = document.querySelectorAll(".btn");
+
+buttons.forEach(btn => {
+    btn.addEventListener("mouseenter", () => {
+        btn.classList.add("hovered");
     });
 
-    // Exemple d’affichage de date automatique
-    const footer = document.querySelector("footer p");
-    if (footer) {
-        const annee = new Date().getFullYear();
-        footer.textContent = `© ${annee} - Prototype Kahymm Gestion Commerce`;
-    }
+    btn.addEventListener("mouseleave", () => {
+        btn.classList.remove("hovered");
+    });
 });
+
